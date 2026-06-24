@@ -3,13 +3,14 @@ package com.mohid.hpe_swe_01.entity;
 import java.util.List;
 
 public class Employees {
-    private List<Employee> Employees;
+
+    private List<Employee> employees;
 
     public List<Employee> getEmployees() {
-        return Employees;
+        return employees;
     }
 
-    public void setEmployees(List<Employee> Employees) {
-        this.Employees = Employees;
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 }

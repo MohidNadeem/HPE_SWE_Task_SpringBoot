@@ -7,17 +7,25 @@ import java.util.List;
 
 public class EmployeeManager {
 
-    public static Employees getEmployees() {
+    private static Employees employees = new Employees();
+
+    static {
+
         List<Employee> employeeList = new ArrayList<>();
 
         employeeList.add(new Employee("E001", "Dhara", "Kumari", "dkr.mtr@example.com", "Software Engineer"));
         employeeList.add(new Employee("E002", "Ayesha", "Malik", "ayesha.malik@example.com", "QA Engineer"));
         employeeList.add(new Employee("E003", "Ali", "Jodat", "ali.jodat@example.com", "Software Engineer"));
-        employeeList.add(new Employee("E004", "Mohid", "Nadeem", "ayesha.malik@example.com", "Project Manager"));
+        employeeList.add(new Employee("E004", "Mohid", "Nadeem", "mohid.nadeem@example.com", "Project Manager"));
 
-        Employees employees = new Employees();
         employees.setEmployees(employeeList);
+    }
 
+    public static Employees getEmployees() {
         return employees;
+    }
+
+    public static void addEmployee(Employee employee) {
+        employees.getEmployees().add(employee);
     }
 }
