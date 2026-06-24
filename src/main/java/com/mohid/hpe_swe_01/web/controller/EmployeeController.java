@@ -3,8 +3,11 @@ package com.mohid.hpe_swe_01.web.controller;
 import com.mohid.hpe_swe_01.entity.Employee;
 import com.mohid.hpe_swe_01.entity.Employees;
 import com.mohid.hpe_swe_01.service.EmployeeManager;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,22 +24,31 @@ public class EmployeeController {
 
     @PostMapping("/employees")
     public Map<String, String> addEmployee(@RequestBody Employee employee) {
-
         Map<String, String> response = new HashMap<>();
 
-        if (employee.getEmployee_id() == null || employee.getEmployee_id().isEmpty()
-                || employee.getFirst_name() == null || employee.getFirst_name().isEmpty()
-                || employee.getLast_name() == null || employee.getLast_name().isEmpty()
-                || employee.getEmail() == null || employee.getEmail().isEmpty()
-                || employee.getTitle() == null || employee.getTitle().isEmpty()) {
+        String message = EmployeeManager.addEmployee(employee);
 
-            response.put("message", "Employee not added. Some of the required fields are missing.");
-            return response;
-        }
+        response.put("message", message);
+        return response;
+    }
 
-        EmployeeManager.addEmployee(employee);
+    @PutMapping("/employees/{employee_id}")
+    public Map<String, String> updateEmployee(@PathVariable String employee_id, @RequestBody Employee employee) {
+        Map<String, String> response = new HashMap<>();
 
-        response.put("message", "Employee added successfully.");
+        String message = EmployeeManager.updateEmployee(employee_id, employee);
+
+        response.put("message", message);
+        return response;
+    }
+
+    @DeleteMapping("/employees/{employee_id}")
+    public Map<String, String> deleteEmployee(@PathVariable String employee_id) {
+        Map<String, String> response = new HashMap<>();
+
+        String message = EmployeeManager.deleteEmployee(employee_id);
+
+        response.put("message", message);
         return response;
     }
 }

@@ -1,0 +1,39 @@
+{
+  "employees" : [ {
+    "employee_id" : "E001",
+    "first_name" : "Dhara",
+    "last_name" : "Kumari",
+    "email" : "dkr.mtr@example.com",
+    "title" : "Software Engineer"
+  }, {
+    "employee_id" : "E002",
+    "first_name" : "Ayesha",
+    "last_name" : "Malik",
+    "email" : "ayesha.malik@example.com",
+    "title" : "QA Engineer"
+  }, {
+    "employee_id" : "E003",
+    "first_name" : "Ali",
+    "last_name" : "Jodat",
+    "email" : "ali.jodat@example.com",
+    "title" : "Software Engineer"
+  }, {
+    "employee_id" : "E004",
+    "first_name" : "Mohid",
+    "last_name" : "Nadeem",
+    "email" : "mohid.nadeem@example.com",
+    "title" : "Project Manager"
+  }, {
+    "employee_id" : "E005",
+    "first_name" : "Wajid",
+    "last_name" : "Khan",
+    "email" : "wajid@example.com",
+    "title" : "Backend Developer"
+  }, {
+    "employee_id" : "E006",
+    "first_name" : "Faiq",
+    "last_name" : "Jamal",
+    "email" : "faiq.j@example.com",
+    "title" : "Data Scientist"
+  } ]
+}

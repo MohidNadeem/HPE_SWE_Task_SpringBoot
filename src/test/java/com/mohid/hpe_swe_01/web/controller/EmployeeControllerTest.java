@@ -67,4 +67,58 @@ public class EmployeeControllerTest {
         // Checking if proper error message is returned
         assertEquals("Employee not added. Some of the required fields are missing.", response.get("message"));
     }
+    
+    @Test
+    public void testAddDuplicateEmployee() {
+
+        EmployeeController controller = new EmployeeController();
+
+        // Creating employee with existing employee id
+        Employee employee = new Employee(
+                "E001",
+                "Duplicate",
+                "User",
+                "duplicate@example.com",
+                "Tester"
+        );
+
+        // Trying to add duplicate employee
+        Map<String, String> response = controller.addEmployee(employee);
+
+        assertEquals("Employee not added. Employee ID already exists.", response.get("message"));
+    }
+
+    @Test
+    public void testUpdateEmployeeSuccessfully() {
+
+        EmployeeController controller = new EmployeeController();
+
+        // Creating updated employee object
+        Employee employee = new Employee(
+                "E001",
+                "Dhara",
+                "Kumari",
+                "updated@example.com",
+                "Senior Software Engineer"
+        );
+
+        // Updating employee
+        Map<String, String> response =
+                controller.updateEmployee("E001", employee);
+
+        assertEquals("Employee updated successfully.", response.get("message"));
+    }
+
+    @Test
+    public void testDeleteEmployeeSuccessfully() {
+
+        EmployeeController controller = new EmployeeController();
+
+        // Deleting an employee
+        Map<String, String> response =
+                controller.deleteEmployee("E003");
+
+        // Checking delete success message
+        assertEquals("Employee deleted successfully.", response.get("message"));
+    }
 }

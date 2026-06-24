@@ -6,6 +6,9 @@ public class Employees {
 
     private List<Employee> employees;
 
+    public Employees() {
+    }
+    
     public List<Employee> getEmployees() {
         return employees;
     }
